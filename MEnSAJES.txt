@@ -1,0 +1,37 @@
+ Precio:
+
+  Dos conceptos separados:
+
+  - Setup inicial: 800–1.200€ (la web, configuración, chatbot, dominio). Al principio, los primeros 3-5 clientes hazlo a
+  800€ para conseguir testimonios reales. Después sube a 1.200€.
+  - Mantenimiento mensual: 60–80€/mes (hosting, API de Claude, soporte). Esto es lo importante — crea ingresos
+  recurrentes. 10 clientes = 700€/mes fijos sin hacer nada.
+
+  ---
+  El mensaje, tienes razón — son dos perfiles distintos:
+
+  Clínica sin web:
+
+  ▎ Buenas, vi vuestra clínica y no encontré vuestra web por ningún lado.
+  ▎
+  ▎ Cada día hay gente buscando en Google "clínica estética [ciudad]" y no os encuentra. Diseño webs para clínicas con
+  ▎ chatbot de IA que reserva citas solo, 24h.
+  ▎
+  ▎ Aquí podéis ver cómo quedaría la vuestra: [URL]
+  ▎
+  ▎ Si os interesa, hablamos.
+
+  Clínica con web mala:
+
+  ▎ Buenas, vi vuestra clínica y entré en vuestra web. Creo que no refleja la calidad de lo que hacéis.
+  ▎
+  ▎ Diseño webs premium para clínicas de estética con chatbot de IA incluido que responde consultas y reserva citas
+  ▎ solo, sin que tengáis que estar pendientes del teléfono.
+  ▎
+  ▎ Aquí podéis verla en directo: [URL]
+  ▎
+  ▎ Si os interesa, hablamos.
+
+  ---
+  La diferencia clave: a la que no tiene web le atacas el miedo a ser invisible. A la que tiene mala web le atacas el
+  orgullo — "no refleja tu calidad" duele y funciona
