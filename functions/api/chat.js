@@ -88,7 +88,7 @@ const tools = [
 ]
 
 async function getAvailableSlots(input, calApiKey, eventTypeId) {
-  const url = `https://api.cal.eu/v2/slots?eventTypeId=${eventTypeId}&start=${input.start_date}&end=${input.end_date}&timeZone=Europe/Madrid`
+  const url = `https://api.cal.com/v2/slots?eventTypeId=${eventTypeId}&start=${input.start_date}&end=${input.end_date}&timeZone=Europe/Madrid`
   const res = await fetch(url, {
     headers: { 'Authorization': `Bearer ${calApiKey}`, 'cal-api-version': '2024-09-04' }
   })
@@ -105,7 +105,7 @@ async function getAvailableSlots(input, calApiKey, eventTypeId) {
 }
 
 async function createBooking(input, calApiKey, eventTypeId) {
-  const res = await fetch('https://api.cal.eu/v2/bookings', {
+  const res = await fetch('https://api.cal.com/v2/bookings', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
