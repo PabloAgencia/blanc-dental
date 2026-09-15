@@ -1360,6 +1360,12 @@ body{background:radial-gradient(ellipse at 15% 0%,rgba(59,143,168,.07) 0%,transp
 </head>
 <body>
 
+<!-- BANNER DEMO — la clinica, los medicos, los precios y los testimonios son ficticios -->
+<div id="demo-top-banner" style="position:fixed;top:0;left:0;right:0;z-index:9999;background:linear-gradient(135deg,#2A6B82,#3B8FA8);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Jost',system-ui,sans-serif;font-size:12px;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 2px 10px rgba(42,107,130,.35);text-align:center">
+  <span>🦷 Web de demostración · Clínica ficticia — Se personaliza completamente con los datos de tu clínica en menos de 7 días</span>
+  <button id="demo-banner-close" style="background:rgba(0,0,0,.15);border:none;color:#fff;cursor:pointer;font-size:16px;font-weight:900;padding:0 8px;border-radius:3px;line-height:1.4;margin-left:4px;flex-shrink:0">✕</button>
+</div>
+
 <div id="pb"></div>
 <div style="position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--glt),var(--gold),transparent);z-index:9998;opacity:.6;pointer-events:none"></div>
 
@@ -3135,6 +3141,27 @@ if('IntersectionObserver' in window){
   </div>
   <button id="sticky-close" aria-label="Cerrar">×</button>
 </div>
+
+<script>
+/* Banner de demo: empuja el nav y el hero hacia abajo para no taparlos,
+   y los devuelve a su sitio si el visitante lo cierra. */
+document.addEventListener('DOMContentLoaded', function(){
+  var banner = document.getElementById('demo-top-banner');
+  var nav    = document.getElementById('nav');
+  var hero   = document.getElementById('hero');
+  if(!banner) return;
+  var alto = banner.offsetHeight;
+  var padHero = hero ? parseFloat(getComputedStyle(hero).paddingTop) : 0;
+  if(nav)  nav.style.top = alto + 'px';
+  if(hero) hero.style.paddingTop = (padHero + alto) + 'px';
+  var cerrar = document.getElementById('demo-banner-close');
+  if(cerrar) cerrar.addEventListener('click', function(){
+    banner.style.display = 'none';
+    if(nav)  nav.style.top = '0';
+    if(hero) hero.style.paddingTop = padHero + 'px';
+  });
+});
+</script>
 
 </body>
 </html>
