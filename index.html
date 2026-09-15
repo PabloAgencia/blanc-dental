@@ -1962,17 +1962,25 @@ if(window.matchMedia('(hover:hover)').matches){
   const cur=document.createElement('div');cur.id='lux-cursor';
   const ring=document.createElement('div');ring.id='lux-cursor-ring';
   document.body.append(cur,ring);
-  let rx=0,ry=0;
+  // El punto va pegado al raton. El anillo lo sigue con un arrastre suave.
+  // El suavizado tiene que ir en un bucle por fotograma, no dentro del mousemove:
+  // si se hace en el mousemove, al parar el raton el anillo se queda congelado
+  // donde estaba y nunca alcanza al cursor (se ve permanentemente retrasado).
+  let mx=0,my=0,rx=0,ry=0,visto=false;
   document.addEventListener('mousemove',e=>{
-    cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
-    rx+=(e.clientX-rx)*.14;ry+=(e.clientY-ry)*.14;
-    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    mx=e.clientX;my=e.clientY;
+    cur.style.left=mx+'px';cur.style.top=my+'px';
+    if(!visto){visto=true;rx=mx;ry=my;}   // sin salto desde 0,0 en el primer movimiento
   },{passive:true});
+  (function animRing(){
+    rx+=(mx-rx)*.22;ry+=(my-ry)*.22;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(animRing);
+  })();
   document.querySelectorAll('a,button,.tc,.tec,.faq-q').forEach(el=>{
     el.addEventListener('mouseenter',()=>{cur.style.width='14px';cur.style.height='14px';ring.style.width='44px';ring.style.height='44px'});
     el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='32px';ring.style.height='32px'});
   });
-  function animRing(){rx+=(parseFloat(ring.style.left||0)-rx)*.0;requestAnimationFrame(animRing)}
 }
 
 // Letras BLANC stagger
@@ -2670,7 +2678,9 @@ if('IntersectionObserver' in window){
           </button>
         </div>
       </div>
-      <div class="cb-messages" aria-live="polite"></div>
+      <!-- data-lenis-prevent: sin esto, Lenis (scroll suave, linea ~1824) se queda la rueda
+           del raton y mueve la pagina de detras en vez de la lista de mensajes -->
+      <div class="cb-messages" aria-live="polite" data-lenis-prevent></div>
       <div class="cb-input-bar">
         <input type="text" class="cb-input" placeholder="Escribe tu consulta..." aria-label="Mensaje" maxlength="500" autocomplete="off">
         <button class="cb-send" aria-label="Enviar">
