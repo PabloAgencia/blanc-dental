@@ -2533,7 +2533,7 @@ if('IntersectionObserver' in window){
     whatsappNumber:  "34654256764",     // sin + ni espacios
     primaryColor:    "#3B8FA8",
     avatarEmoji:     "✨",
-    greeting:        "¡Hola! 😊 Soy el asistente virtual de Blanc Clínica Dental en Valencia. ¿En qué te puedo ayudar?",
+    greeting:        "¡Hola! 😊 Soy el asistente de IA de Blanc Clínica Dental en Valencia. ¿En qué te puedo ayudar?",
     initialQuickReplies: [
       { label: "Tratamientos", send: "tratamientos" },
       { label: "Pedir cita gratuita", send: "cita" },
@@ -2562,7 +2562,7 @@ if('IntersectionObserver' in window){
     },
     { id: 'bot',
       keywords: ['eres un bot','eres bot','eres real','eres una persona','eres humano','eres una ia','eres ia','quien eres','que eres','eres un robot','robot'],
-      response: () => `Soy la asistente virtual de la web 🤖. Para consultas concretas te atiende el equipo de ${CONFIG.businessName} directamente por WhatsApp.`,
+      response: () => `Soy la asistente de IA de la web 🤖. Para consultas concretas te atiende el equipo de ${CONFIG.businessName} directamente por WhatsApp.`,
       quickReplies: [{ label: '💬 Hablar con humano', action: 'whatsapp' }]
     },
     { id: 'ayuda',
@@ -2693,7 +2693,7 @@ if('IntersectionObserver' in window){
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
         </button>
       </div>
-      <div class="cb-disclaimer">Asistente virtual · Reserva online o escríbenos por WhatsApp</div>
+      <div class="cb-disclaimer">Asistente con IA · Reserva online o escríbenos por WhatsApp</div>
     `;
 
     document.body.appendChild(launcher);
@@ -2726,7 +2726,7 @@ if('IntersectionObserver' in window){
     }
   }
   function showGreeting() {
-    const text = CONFIG.greeting || `¡Hola! 👋 Soy el asistente virtual de ${CONFIG.businessName}. ¿En qué te puedo ayudar?`;
+    const text = CONFIG.greeting || `¡Hola! 👋 Soy el asistente de IA de ${CONFIG.businessName}. ¿En qué te puedo ayudar?`;
     addBotMessage(text, CONFIG.initialQuickReplies);
   }
   function addBotMessage(text, quickReplies) {
